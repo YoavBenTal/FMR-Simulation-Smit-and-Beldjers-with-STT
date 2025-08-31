@@ -2,7 +2,7 @@
 Computation, simulation, and fitting utilities for spin‑torque ferromagnetic resonance (ST‑FMR) of thin films using the Smith–Beljers formalism. This repo includes scripts to (i) compute equilibrium magnetization, (ii) evaluate small‑angle dynamics and line shapes (symmetric/antisymmetric Lorentzians), (iii) model Oersted and spin‑torque effective fields, and (iv) fit measured spectra to extract resonance field and linewidth.
 
 > **TL;DR**: Open `STFMR_Analysis_SmithBeljers.m` in MATLAB and run. For measured data, call `fit_func_STFMR(field, volt)` to get [width, H_res, A_sym, A_asym, offset].
-(figs/stfmr_example.png)
+![STFMR traces](figs/stfmr_example.png)
 ---
 
 ## Contents
@@ -16,9 +16,7 @@ Computation, simulation, and fitting utilities for spin‑torque ferromagnetic r
 │   ├── AMR_factor.m                    # Anisotropic MR angular factor vs φ
 │   ├── shape_anisotropy.m              # Demagnetizing factors (Osborn 1945) + elliptic integrals
 │   └── F.m                             # Helper for Oersted field integrals of a strip
-├── data/                               # (optional) Measured spectra: CSV/TXT with columns: field[T], voltage[V]
 ├── figs/                               # Final simulation figures for README/docs
-└── docs/img/                           # Debug or “known‑case” screenshots during dev
 ```
 
 ---
@@ -42,7 +40,7 @@ Computation, simulation, and fitting utilities for spin‑torque ferromagnetic r
    load('data/example_spectrum.mat');  % expects variables: field, volt
    p = fit_func_STFMR(field, volt);    % -> [width, Hres, Asym, Aasym, offset]
    ```
-3. Figures are saved or displayed from the main script; export representative ones to `figs/` for documentation.
+3. Figures are saved or displayed from the main script.
 
 ---
 
