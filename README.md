@@ -2,7 +2,7 @@
 Computation, simulation, and fitting utilities for spin‑torque ferromagnetic resonance (ST‑FMR) of thin films using the Smith–Beljers formalism. This repo includes scripts to (i) compute equilibrium magnetization, (ii) evaluate small‑angle dynamics and line shapes (symmetric/antisymmetric Lorentzians), (iii) model Oersted and spin‑torque effective fields, and (iv) fit measured spectra to extract resonance field and linewidth.
 
 > **TL;DR**: Open `STFMR_Analysis_SmithBeljers.m` in MATLAB and run. For measured data, call `fit_func_STFMR(field, volt)` to get [width, H_res, A_sym, A_asym, offset].
-
+(figs/stfmr_example.png)
 ---
 
 ## Contents
@@ -66,33 +66,12 @@ Computation, simulation, and fitting utilities for spin‑torque ferromagnetic r
 3. **Solve equilibrium** with `find_steady_state` to obtain \(\theta_0,\phi_0\).
 4. **Compute RF response** with `find_perturbations` to obtain \(\delta\phi\) and apply `AMR_factor` to convert to \(\Delta R\).
 5. **Generate synthetic line shapes** and (optionally) **fit measured spectra** with `fit_func_STFMR` to extract \(H_\mathrm{{res}}\) and \(\Delta H\).
-6. **Save plots** to `figs/` and drop a few into the README.
+6. **Save plots**
 
 ---
 
-## Reproducing the figures
-Add a few curated outputs to `figs/` and reference them here with relative paths. For example:
 - **Resonance Field vs Frequency** (\(H_\mathrm{{res}}(f)\)):  
   ![Hres vs f](figs/hres_vs_f.png)
-- **Linewidth vs Frequency** (\(\Delta H(f)\)):  
-  ![dH vs f](figs/dH_vs_f.png)
-- **Example ST‑FMR Spectrum**:  
-  ![spectrum](figs/stfmr_example.png)
-
-> Place raw development/debug images under `docs/img/` if you want to keep the README tidy.
-
----
-
-## Debugging & Known Cases
-Create a lightweight gallery of “known good” and “edge” scenarios that helped during development:
-- **Sanity checks**: zero anisotropy (\(K_u=0\)), no STT (\(H_\text{{STT}}=0\)), large demag asymmetry (thin disk) vs near‑sphere.
-- **Angle sweeps**: \(\phi_H\in[0,2\pi)\) to verify AMR symmetry and sign of antisymmetric component.
-- **Thickness/width scans**: confirm Oersted scaling via `F.m` and correct units (Tesla).
-
-Place screenshots in `docs/img/` and list them here, e.g.:
-- `docs/img/sanity_no_STT.png` — no STT, symmetric Lorentzian only.
-- `docs/img/phi_sweep_45deg.png` — antisymmetric sign flip at \(\phi_H+90^\circ\).
-- `docs/img/linewidth_vs_f.png` — linear \(\Delta H(f)\) as expected from Gilbert damping.
 
 ---
 
@@ -113,25 +92,5 @@ Place screenshots in `docs/img/` and list them here, e.g.:
 - `miu0 = 4π·10⁻⁷ H/m` (SI).  
 - `Ms` in **A/m**, fields in **Tesla**.  
 - Current density `Jc_ac` in **A/m²**; Oersted fields computed in **Tesla**.
-
----
-
-## Testing
-- Add a tiny synthetic spectrum generator (future) and compare recovered `[ΔH, Hres]` from `fit_func_STFMR` against ground truth.
-- Use “no anisotropy, no STT” as a baseline unit test — should yield purely symmetric lineshape.
-
----
-
-## Contributing
-1. Open an issue describing the feature/bug.
-2. Fork → branch → PR with a focused change.
-3. Include a small example and update this README if the public API changes.
-
----
-
-## License
-MIT (or your preferred license).
-
----
 
 *Last updated: 2025-08-31*
