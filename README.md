@@ -1,4 +1,4 @@
-# STFMR Analysis (Smith–Beljers) — MATLAB
+# STFMR Analysis (Smith–Beljers)
 Computation, simulation, and fitting utilities for spin‑torque ferromagnetic resonance (ST‑FMR) of thin films using the Smith–Beljers formalism. This repo includes scripts to (i) compute equilibrium magnetization, (ii) evaluate small‑angle dynamics and line shapes (symmetric/antisymmetric Lorentzians), (iii) model Oersted and spin‑torque effective fields, and (iv) fit measured spectra to extract resonance field and linewidth.
 
 > **TL;DR**: Open `STFMR_Analysis_SmithBeljers.m` in MATLAB and run. For measured data, call `fit_func_STFMR(field, volt)` to get [width, H_res, A_sym, A_asym, offset].
